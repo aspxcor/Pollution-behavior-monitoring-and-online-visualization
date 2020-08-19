@@ -30,6 +30,7 @@
 -CVShowOnline	#在线污水监测平台demo源码
 -DataSetBuildAndEnhance	#数据集建立及增强
 -objectDetectionClassifier	#检测算法
+-TrainDataset.zip	#训练用样本数据集
 ```
 
 ### About objectDetectionClassifier
