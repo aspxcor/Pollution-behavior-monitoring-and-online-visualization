@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__INDEX__/css/test.css">
+    <title>这是title</title>
+
+</head>
+<body>
+	<div>
+        <form action="" method="post" name='myform' enctype="multipart/form-data">
+            <div class = img_upload >
+                <img src="__INDEX__/img/ins/chuanzhenm.png" alt="" data-imgsrc="__INDEX__/img/ins/chuanzhenm.png">
+                <!-- <input type="file" id='iptfileupload'  onchange='show()' name="myfile"> -->
+                <input class="uploadImg file1" type="file" name="file1"  >
+            </div>
+            
+            <!-- <input type="submit" value="提交"> -->
+            <br>
+            <div class = img_show>
+                <img src='1.jpg' alt='' id='img'/>
+            </div>
+        </form>
+
+        <!-- <form action='' method='post' name='myform'>
+            <input type='file' id='iptfileupload' onchange='show()' value='' />
+            <img src='1.jpg' alt='' id='img' />
+         </form> -->
+    
+    <script type="text/javascript">
+        function getPath(obj,fileQuery,transImg) {
+  
+            var imgSrc = '', imgArr = [], strSrc = '' ;
+  
+            if(window.navigator.userAgent.indexOf("MSIE")>=1){  // IE浏览器判断
+                if(obj.select){
+                    obj.select();
+                    var path=document.selection.createRange().text;
+                    obj.removeAttribute("src");
+                    imgSrc = fileQuery.value ;
+                    imgArr = imgSrc.split('.') ;
+                    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+                    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+                        obj.setAttribute("src",transImg);
+                        obj.style.filter=
+                            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+path+"', sizingMethod='scale');";  // IE通过滤镜的方式实现图片显示
+                    }else{
+                        throw new Error('File type Error! please image file upload..');  
+                    }
+                }else{
+                    imgSrc = fileQuery.value ;
+                    imgArr = imgSrc.split('.') ;
+                    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+                    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+                        obj.src = fileQuery.value ;
+                    }else{
+                        throw new Error('File type Error! please image file upload..') ;
+                    }
+  
+                }
+  
+            } else{
+                var file =fileQuery.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e){
+  
+                    imgSrc = fileQuery.value ;
+                    imgArr = imgSrc.split('.') ;
+                    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+                    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+                        obj.setAttribute("src", e.target.result) ;
+                    }else{
+                        throw new Error('File type Error! please image file upload..') ;
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+  
+        function show(){
+            //以下即为完整客户端路径
+            var file_img=document.getElementById("img"),
+                iptfileupload = document.getElementById('iptfileupload') ;
+            getPath(file_img,iptfileupload,file_img) ;
+        }
+    </script>
+
+</div>
+</body>
+</html>

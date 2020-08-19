@@ -1,0 +1,28 @@
+.img_show{
+	text-align: center; /*让div内部文字居中*/
+	/* background-color: #0ff; */
+	border-radius: 20px;
+	width: 300px;
+	height: 300px;
+	margin: left;
+	/* position: ; */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.img_upload{
+	text-align: center; /*让div内部文字居中*/
+	/* background-color: #0ff; */
+	border-radius: 20px;
+	width: 300px;
+	height: 30px;
+	margin: left;
+	/* position: ; */
+    top: 
+    0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- <link rel="stylesheet" href="__INDEX__/css/test.css"> -->
+    <title>这是title</title>
+
+</head>
+
+<head>
+    <style>
+        .upload{
+            display: inline-block; padding: 10px;
+            background-color: cornflowerblue;
+            position: absolute;
+            top:0;
+            bottom: 0;
+            right: 0;
+            left:0;
+            z-index: 90;
+        }
+        .file{
+            width: 100px; height: 50px; opacity: 0;
+            position: absolute;
+            top:0;
+            bottom: 0;
+            right: 0;
+            left:0;
+            z-index: 100;
+        }
+        .top01{
+            width: 200px; height: 100px; opacity: 0;
+            position: absolute;
+            background-color: blueviolet;
+            top:0;
+            bottom: 0;
+            right: 0;
+            left:'10%';
+            z-index: 100;
+        }
+        
+    </style>
+</head>
+<body>
+
+
+     
+        
+    <!-- <input type="file" name="FileUpload" id="FileUpload">
+    <input value="上传图片01" type="button" id="btn_uploadimg" onclick="uploadImg()"> -->
+    
+    
+
+    <form action="/AI/upload_file/" method="post" enctype="multipart/form-data" target="ifrm1">
+        <iframe id="ifrm1" name="ifrm1" style="display: none" ></iframe>
+        <input type="file" name="f1" />
+        <input type="submit"  value="Form提交" />
+    </form>
+    <div id="preview" name = 'preview'></div>
+    <script>
+        function iframeSubmit() {
+            
+                $("ifrm1").on("load",function() {
+                    var s = $("#ifrm1").contents().find("body").text();     // 获取 iframe 标签的值
+                    var obj = JSON.parse(s);    // 拿到值后转化为 json 对象，就可以做各种操作
+                    // console.log(obj);   // 输出是：{status: true, data: null}
+                    $("preview").on("empty",function(){});
+                    var imgTag = document.createElement('img');
+                    console.log(imgTag)
+                    imgTag.src = "/" + obj.data;
+                    $("preview").append(imgTag);
+                })
+            }
+    </script>
+</body>
+<!-- <body>
+    <div style="position: relative; width: 80px;height: 40px;">
+        <input class="file" type="file" id="f1" name="myfile" />
+        <a class="upload">上传</a>
+    </div>
+    <input type="button" value="提交XHR" onclick="xhrSubmit();">
+    <script>
+        function xhrSubmit() {
+            // 首先用原生的 Ajax 方式来上伟文件
+            // $("#f1")[0]     // 后面的索引 0 表示得到的是 DOM 对象
+            var file_obj = document.getElementById("f1").files[0];      // 获取到文件对象
+            var fd = new FormData();        // 相当于是一个 Form 表单
+            fd.append('username','michael');  // 这个 fd 对象有一个 append 方法，可以添加字符串，也可以添加对象
+            fd.append('f1', file_obj);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/AI/upload_file/', true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    var obj = JSON.parse(xhr.responseText); // 将获取的源代码转化为JSON格式
+                    console.log(obj);
+                };
+            };
+            xhr.send(fd);      // 不能直接发文件对象到后台，但是发 fd 这个对象是可以的
+        }
+    </script>
+</body> -->

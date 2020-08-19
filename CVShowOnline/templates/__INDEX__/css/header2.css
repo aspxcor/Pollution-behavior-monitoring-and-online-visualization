@@ -1,0 +1,164 @@
+.insbox{
+    width:1200px;
+    position:relative;
+    margin:0 auto;
+    border:1px solid #333;
+    color:#333;
+    border-radius: 20px;
+    margin-bottom:150px;
+}
+.inul {
+    min-height:44px;
+    margin:20px 0;
+}
+
+ul.inul>div{
+    float:left;
+}
+h3.institle{
+    background:#333;
+    color:#fff;
+    text-align: center;
+    height:78px;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    position:relative;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+.isnnei{
+    background:url(../../img/ins/card.png)no-repeat 0 center;
+    background-size: 50px auto;
+}
+h3.institle span{
+    padding-left: 58px;
+    font-size: 22px;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+.toleft{
+    width:25%;
+    text-align: right;
+}
+.toright{
+    width:75%;
+}
+input.xiangton{
+    border:1px solid #eee;
+    border-radius: 3px;
+    width:290px;
+    height:42px;
+    text-indent: 10px;
+}
+.toyilei{
+    line-height:44px;
+}
+span.nming {
+    margin-right:40px;
+    position:relative;
+}
+.maohaos::after{
+    content:":";
+    display:inline;
+    position:absolute;
+    right:0;
+    right:-10px;
+
+}
+.erlei{
+    height:172px;
+    line-height:172px;
+}
+div.toright>div{
+    float:left;
+}
+div.chuans{
+    position:relative;
+    width:240px;
+    height:160px;
+    border-radius: 3px;
+    border:1px dashed #ccc;
+    margin-right: 44px;
+    overflow: hidden;
+}
+div.chuans img{
+    position:absolute;
+    max-width:238px;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+div.shangshili>div{
+    float:left;
+}
+div.shangshili {
+    height:160px;
+    position:relative;
+}
+div.shuom{
+    margin-right:10px;
+}
+div.shulitu{
+    width:242px;
+    height:100%;
+    position:relative;
+}
+div.shulitu img{
+    position:absolute;
+    max-width:240px;
+    left:0;right:0;
+    top:0;bottom:0;
+    margin:auto;
+}
+div.btns{
+    margin-top:180px;
+    margin-bottom:40px;
+    position:relative;
+    text-align: center;
+}
+span.tibtn{
+    padding:8px 30px;
+    background:#333;
+    border-radius: 5px;
+    color:#fff;
+}
+div.chuans{
+    line-height:30px;
+}
+input.uploadImg{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 999;
+}
+span.delx {
+    position:absolute;
+    top:5px;
+    right:5px;
+    z-index: 9999;
+    font-size: 30px;
+    float:right;
+    display:none;
+    border-radius: 50%;
+}
+span.delx:hover{
+    background:#333;
+    color:#fff;
+    cursor:pointer;
+}
+div.shuom span.chsa {
+    color:#e5000c;
+    margin-right:10px;
+    font-size: 20px;
+    font-weight: normal;
+}
+div.shuom{
+    color:#1f5fc3;
+    font-size: 14px;
+    font-weight: bold;
+}

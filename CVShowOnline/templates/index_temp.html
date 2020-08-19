@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>NBA</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.simple.js"></script>
+    <script type="text/javascript" src="{% static "AI/js/infographic.js" %}"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height: 500px;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById('main'),'infographic');//初始化echarts容器
+    $.ajax({
+        url:'/AI/people_origin_get',
+        type:'get',
+        dataType:'json',
+        success:function(res){
+            console.log(res);
+            console.log(res['data']);
+            {
+                {#var china_map =echarts.init(document.getElementById("china_map"),'infographic');#}
+                //var china_map =echarts.init(document.getElementById("china_map"),'shine');
+
+                //这里是生成随机数据，可以去掉，换成数据库数据
+                {#function randomData() {#}
+                {#        return Math.round(Math.random()*500);#}
+                {#    }#}
+                    var mydata =res['data']
+
+                    option = {
+                        //backgroundColor: '#FFFFFF',
+
+                        title: {
+                            text: '犯罪人口来源分析',
+                            textStyle:{color:'#fff'},
+                            //subtext: '纯属虚构',
+                            x:'center'
+                        },
+                        tooltip : {
+                            trigger: 'item'
+                        },
+                        visualMap: {
+                            show : false,
+                            x: 'left',
+                            y: 'bottom',
+                            //layoutCenter:['30%','30%'],
+                            splitList: [
+                                {start: 500, end:600},{start: 400, end: 500},
+                                {start: 300, end: 400},{start: 200, end: 300},
+                                {start: 100, end: 200},{start: 0, end: 100},
+                            ],
+                            color: ['#ff0', '#ffff00', '#0E94EB','#6FBCF0', '#F0F06F', '#00CC00']
+                        },
+                        series: [{
+                            name: '犯罪人口来源分析',
+                            type: 'map',
+                            mapType: 'china',
+                            roam: true,
+                            label: {
+                                normal: {
+                                    show: false
+                                },
+                                emphasis: {
+                                    show: false
+                                }
+                            },
+                            data:mydata
+                        }]
+                    };
+
+                myChart.setOption(option);
+
+
+
+
+            }
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>

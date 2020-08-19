@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="__INDEX__/css/header2.css">
+    <link rel="stylesheet" href="__INDEX__/css/1.0.8/iconfont.css">
+    <link rel="stylesheet" href="__INDEX__/css/ins/insinfo.css">
+    <script src="__INDEX__/js/common/jquery-1.7.2.min.js"></script>
+    <script src="__INDEX__/js/layer.js"></script>
+    <script src="__INDEX__/js/ins/insinfo.js"></script>
+    <title></title>
+
+</head>
+<body>
+	 {include file="common/header1"}
+	 
+	 <!-- <form action='' method='post' name='myform'>
+		<input type='file' id='iptfileupload' onchange='show()' value='' />
+		<img src='1.jpg' alt='' id='img' />
+	 </form> -->
+
+	 
+     <div class="insbox">
+         <!-- <h3 class="institle"><span class="isnnei">提交商业投保资料</span> </h3> -->
+         <div class="nelist">
+  
+		
+			<div class="toright clearfix">
+
+					
+                    <div class="chuans">
+
+                        <img src="__INDEX__/img/ins/chuanzhenm.png" alt="" data-imgsrc="__INDEX__/img/ins/chuanzhenm.png">
+                         <input class="uploadImg file1" type="file" name="file1"  >
+                         <span class="delx Hui-iconfont">&#xe60b;</span>
+                    </div>
+                    <div class="shangshili clearfix">
+                        <div class="shuom">示例</div>
+                        <div class="shulitu">
+                            <img src="__INDEX__/img/ins/shilizhen.png" alt="" data-imgsrc="__INDEX__/img/ins/shilizhen.png">
+                        </div>
+                    </div>
+            </div>
+				
+
+            
+         </div>
+
+         <div class="btns">
+			<span class="tibtn">确定</span>
+		</div>  
+	 </div>
+	 <script type="text/javascript">
+		function getPath(obj,fileQuery,transImg) {
+  
+			var imgSrc = '', imgArr = [], strSrc = '' ;
+  
+			if(window.navigator.userAgent.indexOf("MSIE")>=1){  // IE浏览器判断
+				if(obj.select){
+					obj.select();
+					var path=document.selection.createRange().text;
+					obj.removeAttribute("src");
+					imgSrc = fileQuery.value ;
+					imgArr = imgSrc.split('.') ;
+					strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+					if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+						obj.setAttribute("src",transImg);
+						obj.style.filter=
+							"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+path+"', sizingMethod='scale');";  // IE通过滤镜的方式实现图片显示
+					}else{
+						throw new Error('File type Error! please image file upload..');  
+					}
+				}else{
+					imgSrc = fileQuery.value ;
+					imgArr = imgSrc.split('.') ;
+					strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+					if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+						obj.src = fileQuery.value ;
+					}else{
+						throw new Error('File type Error! please image file upload..') ;
+					}
+  
+				}
+  
+			} else{
+				var file =fileQuery.files[0];
+				var reader = new FileReader();
+				reader.onload = function(e){
+  
+					imgSrc = fileQuery.value ;
+					imgArr = imgSrc.split('.') ;
+					strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+					if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+						obj.setAttribute("src", e.target.result) ;
+					}else{
+						throw new Error('File type Error! please image file upload..') ;
+					}
+				}
+				reader.readAsDataURL(file);
+			}
+		}
+  
+		function show(){
+			//以下即为完整客户端路径
+			var file_img=document.getElementById("img"),
+				iptfileupload = document.getElementById('iptfileupload') ;
+			getPath(file_img,iptfileupload,file_img) ;
+		}
+	</script>
+     <script>
+		 var otijiourl = "{:url('insorder/submitInsInfo')}";
+		 
+	 </script>
+	 
+</body>
+</html>
