@@ -30,7 +30,8 @@
 -CVShowOnline	#在线污水监测平台demo源码
 -DataSetBuildAndEnhance	#数据集建立及增强
 -objectDetectionClassifier	#检测算法
--TrainDataset.zip	#训练用样本数据集
+-train			#训练程序
+-TrainDataset.zip			#训练用样本数据集
 ```
 
 ### About objectDetectionClassifier
@@ -41,9 +42,9 @@
 -objectDetectionClassifier.py	#代码文件
 -path.txt	#路径读取文件夹:取待处理图片文件夹的绝对路径，复制进去即可。
 			#待处理图片统一为jpg格式，但命名无需处理可以混乱，不必1，2，3....
--cascade.xml	#第一阶段检测模型（可模块化更改）
--model_yes_or_not	#第二阶段，有无污水分类模型（可模块化更改）
--model_clean_or_dirty	#第三阶段，清水污水分类模型（可模块化更改）
+-cascade.xml	#第一阶段检测模型
+-model_yes_or_not	#第二阶段，有无污水分类模型
+-model_clean_or_dirty	#第三阶段，清水污水分类模型
 ```
 
 ## 研究思路
