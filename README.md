@@ -1,3 +1,4 @@
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=aspxcor.visitor)
 # 基于计算机视觉的排污行为监测、污水色度检测及基于Django框架的智慧河网在线可视化监测平台
 
 ## 研究背景
